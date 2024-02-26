@@ -1,15 +1,23 @@
 import './Header.css'
 import Link from './link/Link';
-import githubIcon from '../../img/github.png'
-import linkedInIcon from '../../img/linkedin.png'
-import burger from '../../img/burger-menu.png'
+import logo from '../../img/logo/logo.png'
+import githubIcon from '../../img/logo/github.png'
+import linkedInIcon from '../../img/logo/linkedin.png'
+import burger from '../../img/logo/burger-menu.png'
+import { useState } from 'react';
 
 const Header = () => {
+  const [mobile, setMobile] = useState('none');
+
+  function onMenu() {
+    (mobile === 'none') ? setMobile('flex'): setMobile('none');    
+  }
+
   return(
     <header className="header">      
       <div className="header__content">
         <div className="header__logo-container">
-          <img className='logo-container__icon'src='#'></img>
+          <img className='logo-container__icon'src={logo}></img>
           <div className='logo-container__name'>Polina Gorelik</div>
         </div>
         <div className="header__menu">
@@ -33,10 +41,15 @@ const Header = () => {
             </li>
           </ul>
         </div>
-        <div className='header__burger-menu'>
+        <button onClick={onMenu} className='header__burger-menu'>
           <img className='burger-menu-icon' src={burger}></img>
-        </div>
+        </button>
       </div>
+      <ul style={{display: mobile}} className='burger-menu__list'>
+        <Link name='About' url='#about' className='burger-menu__item'/>
+        <Link name='Portfolio' url='#projects' className='burger-menu__item'/>
+        <Link name='Contact' url='#contact' className='burger-menu__item'/>
+      </ul>
     </header>
   ) 
 }
