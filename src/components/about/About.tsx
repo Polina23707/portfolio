@@ -1,9 +1,21 @@
 import './About.css'
 import description from './description';
-import MainButton from '../button/MainButton';
 import SkillsList from '../skillsList/SkillsList';
+import projectsList from '../projects/ProjectList';
 
 const About = () => {
+  const allSkillsList = () => {
+    let allSkills: string[] = [];
+    projectsList.map((project) => {
+      project.skills.forEach((skill) => {
+        if (!allSkills.includes(skill)) {
+          allSkills.push(skill);
+        } 
+      })
+    })
+    return allSkills.sort();
+  }
+
   return(
     <section className="about" id='about'>
       <h1 className='about__header'>About me</h1>
@@ -14,14 +26,12 @@ const About = () => {
           <p className='about__description'>{description.firstPart}</p>
           <p className='about__description'>{description.secondPart}</p>
           <p className='about__description'>{description.thirdPart}</p>
-          <MainButton name='Contact' url='#contact'/>
         </div>
         <div className='about__skills'>
           <h3 className='skills-header'>My Skills</h3>
-          <SkillsList props={['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Jest']}/>
+          <SkillsList props={allSkillsList()}/>
         </div>
       </div>
-      
     </section>
   )
 }
