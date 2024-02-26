@@ -1,12 +1,14 @@
 import './MainButton.css'
 
 interface MainButtonType {
+  id: string;
   name: string;
-  url: string;
+  onClick: any;
 }
-const MainButton = ({name, url}: MainButtonType) => {
+
+const MainButton = ({id, name, onClick}: MainButtonType) => {
   return(
-    <a href={url} className="main-btn">{name}</a>
+    <button className="main-btn" id={id} onClick={onClick}>{name}</button>
   )
 }
 
