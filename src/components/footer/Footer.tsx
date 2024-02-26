@@ -1,6 +1,6 @@
 import './Footer.css'
-import githubIcon from '../../img/github-white.png'
-import linkedInIcon from '../../img/linkedin-white.png'
+import githubIcon from '../../img/logo/github-white.png'
+import linkedInIcon from '../../img/logo/linkedin-white.png'
 
 const Footer = () => {
   return(
