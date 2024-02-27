@@ -4,14 +4,14 @@ import logo from '../../img/logo/logo.png'
 import githubIcon from '../../img/logo/github.png'
 import linkedInIcon from '../../img/logo/linkedin.png'
 import burger from '../../img/logo/burger-menu.png'
-import { useState } from 'react';
 
-const Header = () => {
-  const [mobile, setMobile] = useState('none');
+interface HeaderType {
+  onMenuItemClick: any;
+  onMenu: any;
+  mobile: string;
+}
 
-  function onMenu() {
-    (mobile === 'none') ? setMobile('flex'): setMobile('none');    
-  }
+const Header = ({onMenuItemClick, mobile, onMenu}: HeaderType) => {
 
   return(
     <header className="header">      
@@ -22,9 +22,9 @@ const Header = () => {
         </div>
         <div className="header__menu">
           <ul className="header__links">
-            <Link name='About' url='#about' className='header__link'/>
-            <Link name='Portfolio' url='#projects' className='header__link'/>
-            <Link name='Contact' url='#contact' className='header__link'/>
+            <Link name='About' url='#about' className='header__link' onMenuItemClick={onMenuItemClick}/>
+            <Link name='Portfolio' url='#projects' className='header__link'onMenuItemClick={onMenuItemClick}/>
+            <Link name='Contact' url='#contact' className='header__link' onMenuItemClick={onMenuItemClick}/>
           </ul>
         </div>
         <div className="header__socials">
@@ -46,9 +46,9 @@ const Header = () => {
         </button>
       </div>
       <ul style={{display: mobile}} className='burger-menu__list'>
-        <Link name='About' url='#about' className='burger-menu__item'/>
-        <Link name='Portfolio' url='#projects' className='burger-menu__item'/>
-        <Link name='Contact' url='#contact' className='burger-menu__item'/>
+        <Link name='About' url='#about' className='burger-menu__item' onMenuItemClick={onMenuItemClick}/>
+        <Link name='Portfolio' url='#projects' className='burger-menu__item' onMenuItemClick={onMenuItemClick}/>
+        <Link name='Contact' url='#contact' className='burger-menu__item' onMenuItemClick={onMenuItemClick}/>
       </ul>
     </header>
   ) 
