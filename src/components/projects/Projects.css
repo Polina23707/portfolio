@@ -1,0 +1,27 @@
+.projects {
+  height: auto;
+  /* border: 1px solid rgb(148, 64, 78); */
+  /* width: 1000px; */
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.projects__header {
+  font-size: 30px;
+}
+
+.projects__intro {
+  margin: 20px;
+}
+
+.projects__container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+
