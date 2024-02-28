@@ -1,15 +1,17 @@
 import About from "../about/About";
 import './Main.css'
 import Projects from "../projects/Projects";
-import { useState } from "react";
 import ProjectPage from "../projectPage/ProjectPage";
 
-const Main = () => {
-  const [project, setProject] = useState('');
+interface MainType {
+  onClick: any;
+  project: string;
+}
 
-  const onClick = (e: any) => {
-    setProject(e.target.id);
-  }
+const Main = ({onClick, project}: MainType) => {
+  // const [project, setProject] = useState('');
+
+  
 
   const checkState = () => {
     if (project === '') {
